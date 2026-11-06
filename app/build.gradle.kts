@@ -25,6 +25,7 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
     buildFeatures { compose = true }
+    androidResources { noCompress += "tflite" }
     composeOptions { kotlinCompilerExtensionVersion = "1.5.14" }
 }
 
@@ -45,6 +46,9 @@ dependencies {
 
     // On-device face detection (bundled model, no network needed)
     implementation("com.google.mlkit:face-detection:16.1.6")
+
+    // On-device face embedding model (MobileFaceNet)
+    implementation("org.tensorflow:tensorflow-lite:2.14.0")
 
     // Keystore-backed encrypted storage
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
