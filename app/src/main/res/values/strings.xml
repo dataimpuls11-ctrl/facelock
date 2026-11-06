@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FaceLock</string>
+    <string name="accessibility_description">Detects which app is opened so FaceLock can ask for face verification before it is shown. No screen content is stored or transmitted.</string>
+</resources>
