@@ -83,7 +83,7 @@ private fun LockScreen(target: String, onSuccess: () -> Unit, onCancel: () -> Un
         Text("Unlock $label", style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(24.dp))
         key(session) {
-            if (granted) FaceCircle { session.onFace(it) }
+            if (granted) FaceCircle { face, emb -> session.onFace(face, emb) }
             else Text("Camera permission is required to unlock.", textAlign = TextAlign.Center)
         }
         Spacer(Modifier.height(24.dp))

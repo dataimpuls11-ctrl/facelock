@@ -57,7 +57,7 @@ class EnrollmentActivity : ComponentActivity() {
                 ) {
                     Text("Add a face", style = MaterialTheme.typography.headlineSmall)
                     Spacer(Modifier.height(24.dp))
-                    if (granted) FaceCircle { session.onFace(it) }
+                    if (granted) FaceCircle { face, emb -> session.onFace(face, emb) }
                     else Text("Camera permission is required.", textAlign = TextAlign.Center)
                     Spacer(Modifier.height(24.dp))
                     Text(session.prompt, style = MaterialTheme.typography.titleMedium, textAlign = TextAlign.Center)

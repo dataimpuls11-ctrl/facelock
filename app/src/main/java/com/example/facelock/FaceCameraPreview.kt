@@ -22,8 +22,9 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 
 /** Circular front-camera preview that feeds frames to ML Kit through [FaceAnalyzer]. */
 @Composable
-fun FaceCircle(onFace: (com.google.mlkit.vision.face.Face?) -> Unit) {
-    val analyzer = remember { FaceAnalyzer(onFace) }
+fun FaceCircle(onFace: (com.google.mlkit.vision.face.Face?, FloatArray?) -> Unit) {
+    val ctx = LocalContext.current
+    val analyzer = remember { FaceAnalyzer(ctx, onFace) }
     DisposableEffect(analyzer) { onDispose { analyzer.close() } }
     Box(Modifier.size(280.dp).clip(CircleShape)) {
         CameraPreview(analyzer, Modifier.fillMaxSize())
